@@ -35,7 +35,7 @@ const ClientCreate = () => {
 		};
 		const resp = await fetch('https://knox-fullstack-back.herokuapp.com/crear_cliente', request);
 		const json = await resp.json();
-		console.log('[llamada de api] - creación de un cliente', json.data[0]);
+		console.log('[llamada de api] - creación de un cliente', json.data);
 	};
 
 	return (
