@@ -172,7 +172,7 @@ const ClientList = ({ contentWidth }) => {
 	return (
 		<>
 			<Table
-				style={{ maxWidth: drawerWidth + 'px' }}
+				className="w-full max-w-xl"
 				size="middle"
 				loading={false}
 				bordered={false}
