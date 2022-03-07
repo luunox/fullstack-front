@@ -37,6 +37,7 @@ const Dashboard = () => {
 				arr[i] = { ...rest, edad: date(date.now()).diff(nacimiento, 'years') };
 			});
 			setData(json.data);
+			console.log('[llamada de api] - lista de todos los clientes', json.data[0]);
 		})();
 	}, []);
 

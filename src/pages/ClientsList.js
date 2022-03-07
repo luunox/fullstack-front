@@ -103,12 +103,14 @@ const ClientList = () => {
 			render: (data) => {
 				return (
 					<Space size="middle">
-						{/* <button className="text-cyan-500 hover:text-blue-600">Delete</button> */}
 						<button
 							className="flex items-center text-cyan-500 hover:text-blue-600"
-							onClick={() => {
-								setClient(data);
+							onClick={async () => {
+								let resp = await fetch('https://knox-fullstack-back.herokuapp.com/clientes/' + data.key, { method: 'GET' });
+								let json = await resp.json();
+								setClient(json.data[0]);
 								setDrawerVisible(true);
+								console.log('[llamada de api] - datos de 1 solo clientes', json.data[0]);
 							}}
 						>
 							Mas datos &nbsp; <RightOutlined />
@@ -143,20 +145,19 @@ const ClientList = () => {
 
 	useEffect(() => {
 		(async function () {
-			const request = {
-				method: 'GET',
-			};
-			let resp = await fetch('https://knox-fullstack-back.herokuapp.com/clientes', request);
+			let resp = await fetch('https://knox-fullstack-back.herokuapp.com/clientes', { method: 'GET' });
 			let json = await resp.json();
 			json.data.forEach((val, i, arr) => {
 				const { id, ...rest } = val;
 				arr[i] = { ...rest, key: id };
 			});
 			setData(json.data);
+			console.log('[llamada de api] - lista de todos los clientes', json.data[0]);
 
-			resp = await fetch('https://knox-fullstack-back.herokuapp.com/promedio_edades', request);
+			resp = await fetch('https://knox-fullstack-back.herokuapp.com/promedio_edades', { method: 'GET' });
 			json = await resp.json();
 			setPromedio(json.data);
+			console.log('llamada de api - promedio de los clientes', json.data[0]);
 		})();
 	}, []);
 
