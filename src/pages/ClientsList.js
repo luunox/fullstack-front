@@ -250,10 +250,10 @@ const ClientList = ({ contentWidth }) => {
 				<Divider />
 				<p className="block mb-4 text-base font-bold">Contacts</p>
 				<Row>
-					<Col className="pr-3" span={12}>
+					<Col className="pr-3" span={colSpan}>
 						<ShortDescription title="Email" content="AntDesign@example.com" />
 					</Col>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="Phone Number" content="+86 181 0000 0000" />
 					</Col>
 				</Row>
