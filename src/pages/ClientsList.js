@@ -7,6 +7,7 @@ import { Button, Col, Divider, Drawer, Input, Row, Space, Table } from 'antd';
 date.locale('es');
 
 const ClientList = ({ contentWidth }) => {
+	const drawerWidth = 445;
 	const [data, setData] = useState([]);
 	const [client, setClient] = useState({});
 	const [colSpan, setColSpan] = useState(0);
@@ -123,7 +124,7 @@ const ClientList = ({ contentWidth }) => {
 	];
 
 	const ShortDescription = ({ title, content }) => (
-		<Row>
+		<Row wrap={false}>
 			<Col className="mb-1.5 text-sm font-bold" flex="100px">
 				{title}:
 			</Col>
@@ -163,7 +164,7 @@ const ClientList = ({ contentWidth }) => {
 	}, []);
 
 	useEffect(() => {
-		setColSpan(window.innerWidth - contentWidth < 420 ? 24 : 12);
+		setColSpan(window.innerWidth - contentWidth < drawerWidth ? 24 : 12);
 	}, [window.innerWidth, contentWidth]);
 
 	return (
@@ -181,7 +182,7 @@ const ClientList = ({ contentWidth }) => {
 			/>
 			<br />
 			<Drawer
-				width={window.innerWidth - contentWidth}
+				width={window.innerWidth - contentWidth < drawerWidth ? window.innerWidth - contentWidth : drawerWidth}
 				closable={false}
 				getContainer={false}
 				placement="right"
@@ -192,7 +193,7 @@ const ClientList = ({ contentWidth }) => {
 			>
 				<p className="block mb-4 text-base font-bold">Personal</p>
 				<Row>
-					<Col span={colSpan}>
+					<Col className="pr-3" span={colSpan}>
 						<ShortDescription title="Nombres" content={client.nombres} />
 					</Col>
 					<Col span={colSpan}>
@@ -200,7 +201,7 @@ const ClientList = ({ contentWidth }) => {
 					</Col>
 				</Row>
 				<Row>
-					<Col span={colSpan}>
+					<Col className="pr-3" span={colSpan}>
 						<ShortDescription title="City" content="HangZhou" />
 					</Col>
 					<Col span={colSpan}>
@@ -208,11 +209,11 @@ const ClientList = ({ contentWidth }) => {
 					</Col>
 				</Row>
 				<Row>
-					<Col span={colSpan}>
+					<Col className="pr-3" span={colSpan}>
 						<ShortDescription title="Birthday" content={date(client.nacimiento).format('DD/MM/YYYY')} />
 					</Col>
 					<Col span={colSpan}>
-						<ShortDescription title="Email" content="AntDesign@example.com" />
+						<ShortDescription title="Website" content="-" />
 					</Col>
 				</Row>
 				<Row>
@@ -223,7 +224,7 @@ const ClientList = ({ contentWidth }) => {
 				<Divider />
 				<p className="block mb-4 text-base font-bold">Company</p>
 				<Row>
-					<Col span={colSpan}>
+					<Col className="pr-3" span={colSpan}>
 						<ShortDescription title="Position" content="Programmer" />
 					</Col>
 					<Col span={colSpan}>
@@ -231,7 +232,7 @@ const ClientList = ({ contentWidth }) => {
 					</Col>
 				</Row>
 				<Row>
-					<Col span={colSpan}>
+					<Col className="pr-3" span={colSpan}>
 						<ShortDescription title="Department" content="XTech" />
 					</Col>
 					<Col span={colSpan}>
@@ -249,7 +250,7 @@ const ClientList = ({ contentWidth }) => {
 				<Divider />
 				<p className="block mb-4 text-base font-bold">Contacts</p>
 				<Row>
-					<Col span={12}>
+					<Col className="pr-3" span={12}>
 						<ShortDescription title="Email" content="AntDesign@example.com" />
 					</Col>
 					<Col span={12}>
