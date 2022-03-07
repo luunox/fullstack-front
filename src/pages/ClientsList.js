@@ -157,7 +157,7 @@ const ClientList = () => {
 			resp = await fetch('https://knox-fullstack-back.herokuapp.com/promedio_edades', { method: 'GET' });
 			json = await resp.json();
 			setPromedio(json.data);
-			console.log('llamada de api - promedio de los clientes', json.data[0]);
+			console.log('[llamada de api] - promedio de los clientes', json.data[0]);
 		})();
 	}, []);
 

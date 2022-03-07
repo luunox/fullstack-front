@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'antd';
 import date from 'moment';
-import { ArcGauge, CircularGauge, LinearGauge, RadialGauge } from '@progress/kendo-react-gauges';
+import { CircularGauge } from '@progress/kendo-react-gauges';
 
 const Dashboard = () => {
 	const [data, setData] = useState([]);
-	const value = 30;
-	const pointer = {
-		value: value,
-	};
 	const gaugeStyles = {
 		display: 'block',
 	};
