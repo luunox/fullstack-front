@@ -180,10 +180,9 @@ const ClientList = ({ contentWidth }) => {
 				pagination={{ position: ['none', 'bottomRight'] }}
 				footer={() => <>Promedio de edades: {promedio}</>}
 			/>
-			<br />
 			<Drawer
 				width={window.innerWidth - contentWidth < drawerWidth ? window.innerWidth - contentWidth : drawerWidth}
-				closable={false}
+				closable={true}
 				getContainer={false}
 				placement="right"
 				title={<p className="block text-lg font-bold">Datos del cliente</p>}
