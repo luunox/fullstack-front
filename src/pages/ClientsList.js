@@ -163,6 +163,7 @@ const ClientList = () => {
 	return (
 		<>
 			<Table
+				className="max-w-2xl"
 				size="middle"
 				loading={false}
 				bordered={false}
