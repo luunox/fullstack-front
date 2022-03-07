@@ -146,7 +146,7 @@ const ClientList = () => {
 			const request = {
 				method: 'GET',
 			};
-			let resp = await fetch('http://localhost:5050/clientes', request);
+			let resp = await fetch('https://knox-fullstack-back.herokuapp.com/clientes', request);
 			let json = await resp.json();
 			json.data.forEach((val, i, arr) => {
 				const { id, ...rest } = val;
@@ -154,7 +154,7 @@ const ClientList = () => {
 			});
 			setData(json.data);
 
-			resp = await fetch('http://localhost:5050/promedio_edades', request);
+			resp = await fetch('https://knox-fullstack-back.herokuapp.com/promedio_edades', request);
 			json = await resp.json();
 			setPromedio(json.data);
 		})();

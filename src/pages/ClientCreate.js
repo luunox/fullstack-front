@@ -33,7 +33,7 @@ const ClientCreate = () => {
 			headers: { Accept: '*/*', 'Content-Type': 'application/json' },
 			body: JSON.stringify(values),
 		};
-		const resp = await fetch('http://localhost:5050/crear_cliente', request);
+		const resp = await fetch('https://knox-fullstack-back.herokuapp.com/crear_cliente', request);
 		const json = await resp.json();
 		console.log('Received values of form: ', json);
 	};
