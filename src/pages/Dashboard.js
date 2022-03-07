@@ -23,10 +23,7 @@ const Dashboard = () => {
 
 	useEffect(() => {
 		(async function () {
-			const request = {
-				method: 'GET',
-			};
-			let resp = await fetch('https://knox-fullstack-back.herokuapp.com/clientes', request);
+			let resp = await fetch('https://knox-fullstack-back.herokuapp.com/clientes', { method: 'GET' });
 			let json = await resp.json();
 			json.data.forEach((val, i, arr) => {
 				const { nacimiento, ...rest } = val;
