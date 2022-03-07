@@ -164,6 +164,7 @@ const ClientList = ({ contentWidth }) => {
 	}, []);
 
 	useEffect(() => {
+		alert(window.innerWidth);
 		setColSpan(window.innerWidth - contentWidth < drawerWidth ? 24 : 12);
 	}, [window.innerWidth, contentWidth]);
 
