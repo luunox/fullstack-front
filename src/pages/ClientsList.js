@@ -187,10 +187,10 @@ const ClientList = ({ contentWidth }) => {
 				closable={true}
 				getContainer={false}
 				placement="right"
-				title={<p className="block text-lg font-bold">Datos del cliente</p>}
 				visible={drawerVisible}
 				style={{ position: 'absolute' }}
 				onClose={() => setDrawerVisible(false)}
+				title={<p className="block text-lg font-bold">Datos del cliente</p>}
 			>
 				<p className="block mb-4 text-base font-bold">Personal</p>
 				<Row>

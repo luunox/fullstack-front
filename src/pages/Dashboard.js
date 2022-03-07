@@ -36,7 +36,7 @@ const Dashboard = () => {
 
 	return (
 		<>
-			<Row className="min-w-full h-40 justify-around">
+			<Row className="min-w-full justify-around">
 				<Col>
 					<CircularGauge style={gaugeStyles} value={data.filter((dat) => dat.edad <= 18).length} centerRender={centerRenderer} />
 					<p className="text-base font-semibold">Clientes hasta los 18 años</p>
