@@ -13,7 +13,7 @@ const Home = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const [contentWidth, setContentWidth] = useState(0);
-	const [collapsed, setCollapsed] = useState(true);
+	const [collapsed, setCollapsed] = useState(false);
 
 	const toggle = () => setCollapsed(!collapsed);
 	useEffect(() => setContentWidth(collapsed ? 80 : 200), [collapsed]);
