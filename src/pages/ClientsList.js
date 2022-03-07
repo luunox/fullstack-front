@@ -7,7 +7,8 @@ import { Button, Col, Divider, Drawer, Input, Row, Space, Table } from 'antd';
 date.locale('es');
 
 const ClientList = ({ contentWidth }) => {
-	const drawerWidth = 445;
+	const drawerMinWidth = 445;
+	const [drawerWidth, setDrawerWidth] = useState(445);
 	const [data, setData] = useState([]);
 	const [client, setClient] = useState({});
 	const [colSpan, setColSpan] = useState(0);
@@ -164,14 +165,14 @@ const ClientList = ({ contentWidth }) => {
 	}, []);
 
 	useEffect(() => {
-		alert(window.innerWidth);
-		setColSpan(window.innerWidth - contentWidth < drawerWidth ? 24 : 12);
+		setDrawerWidth(window.innerWidth - contentWidth < drawerMinWidth ? window.innerWidth - contentWidth : drawerMinWidth);
+		setColSpan(window.innerWidth - contentWidth < drawerMinWidth ? 24 : 12);
 	}, [window.innerWidth, contentWidth]);
 
 	return (
 		<>
 			<Table
-				className="max-w-2xl"
+				style={{ maxWidth: drawerWidth + 'px' }}
 				size="middle"
 				loading={false}
 				bordered={false}
@@ -182,7 +183,7 @@ const ClientList = ({ contentWidth }) => {
 				footer={() => <>Promedio de edades: {promedio}</>}
 			/>
 			<Drawer
-				width={window.innerWidth - contentWidth < drawerWidth ? window.innerWidth - contentWidth : drawerWidth}
+				width={drawerWidth}
 				closable={true}
 				getContainer={false}
 				placement="right"

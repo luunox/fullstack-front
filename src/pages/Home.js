@@ -13,7 +13,7 @@ const Home = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const [contentWidth, setContentWidth] = useState(200);
-	const [collapsed, setCollapsed] = useState(false);
+	const [collapsed, setCollapsed] = useState(window.innerWidth < 600 ? true : false);
 
 	const toggle = () => setCollapsed(!collapsed);
 	useEffect(() => setContentWidth(collapsed ? 80 : 200), [collapsed]);
@@ -35,21 +35,23 @@ const Home = () => {
 				</Menu>
 			</Sider>
 
-			<Layout className="bg-slate-200 transition-spacing ease-in-out delay-[0ms] duration-[180ms]" style={{ marginLeft: contentWidth + 'px' }}>
-				<Header className="bg-slate-300 px-5">
-					{React.createElement(!collapsed ? ArrowLeftOutlined : ArrowRightOutlined, {
-						className: 'trigger ',
-						onClick: toggle,
-					})}
-				</Header>
-				<Content className="relative flex flex-col justify-center items-center site-layout-background overflow-x-hidden overflow-y-auto h-screen min-h-[280px] p-6">
-					<Routes>
-						<Route path="/" element={<DashBoard />} />
-						<Route path="/create_client" element={<ClientCreate />} />
-						<Route path="/list_clients" element={<ClientList contentWidth={contentWidth} />} />
-					</Routes>
-				</Content>
-			</Layout>
+			<Header className="absolute h-16 bg-slate-300 px-5 z-10" style={{ marginLeft: contentWidth + 'px', width: `calc(100% - ${contentWidth}px)` }}>
+				{React.createElement(!collapsed ? ArrowLeftOutlined : ArrowRightOutlined, {
+					className: 'trigger ',
+					onClick: toggle,
+				})}
+			</Header>
+
+			<Content
+				className="relative flex flex-col justify-center items-center bg-slate-200 overflow-x-hidden overflow-y-auto min-h-[280px] p-6 mt-16"
+				style={{ marginLeft: window.innerWidth < 600 ? 80 + 'px' : 80 + 'px' }}
+			>
+				<Routes>
+					<Route path="/" element={<DashBoard />} />
+					<Route path="/create_client" element={<ClientCreate />} />
+					<Route path="/list_clients" element={<ClientList contentWidth={contentWidth} />} />
+				</Routes>
+			</Content>
 		</Layout>
 	);
 };
