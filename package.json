@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@progress/kendo-drawing": "^1.16.3",
     "@progress/kendo-react-gauges": "^5.1.0",
     "@progress/kendo-theme-default": "^5.2.0",
     "@testing-library/jest-dom": "^5.16.2",
