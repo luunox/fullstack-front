@@ -46,7 +46,7 @@ const Home = () => {
 					<Routes>
 						<Route path="/" element={<DashBoard />} />
 						<Route path="/create_client" element={<ClientCreate />} />
-						<Route path="/list_clients" element={<ClientList />} />
+						<Route path="/list_clients" element={<ClientList contentWidth={contentWidth} />} />
 					</Routes>
 				</Content>
 			</Layout>

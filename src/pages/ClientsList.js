@@ -6,9 +6,10 @@ import { Button, Col, Divider, Drawer, Input, Row, Space, Table } from 'antd';
 
 date.locale('es');
 
-const ClientList = () => {
+const ClientList = ({ contentWidth }) => {
 	const [data, setData] = useState([]);
 	const [client, setClient] = useState({});
+	const [colSpan, setColSpan] = useState(0);
 	const [config, setConfig] = useState({});
 	const [promedio, setPromedio] = useState(0);
 	const [searchInput, setSearchInput] = useState({});
@@ -161,6 +162,10 @@ const ClientList = () => {
 		})();
 	}, []);
 
+	useEffect(() => {
+		setColSpan(window.innerWidth - contentWidth < 420 ? 24 : 12);
+	}, [window.innerWidth, contentWidth]);
+
 	return (
 		<>
 			<Table
@@ -176,7 +181,7 @@ const ClientList = () => {
 			/>
 			<br />
 			<Drawer
-				width={600}
+				width={window.innerWidth - contentWidth}
 				closable={false}
 				getContainer={false}
 				placement="right"
@@ -187,26 +192,26 @@ const ClientList = () => {
 			>
 				<p className="block mb-4 text-base font-bold">Personal</p>
 				<Row>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="Nombres" content={client.nombres} />
 					</Col>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="Apellidos" content={client.apellidos} />
 					</Col>
 				</Row>
 				<Row>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="City" content="HangZhou" />
 					</Col>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="Country" content="China🇨🇳" />
 					</Col>
 				</Row>
 				<Row>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="Birthday" content={date(client.nacimiento).format('DD/MM/YYYY')} />
 					</Col>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="Email" content="AntDesign@example.com" />
 					</Col>
 				</Row>
@@ -218,18 +223,18 @@ const ClientList = () => {
 				<Divider />
 				<p className="block mb-4 text-base font-bold">Company</p>
 				<Row>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="Position" content="Programmer" />
 					</Col>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="Job Type" content="Coding" />
 					</Col>
 				</Row>
 				<Row>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="Department" content="XTech" />
 					</Col>
-					<Col span={12}>
+					<Col span={colSpan}>
 						<ShortDescription title="Supervisor" content={<a>Lin</a>} />
 					</Col>
 				</Row>
