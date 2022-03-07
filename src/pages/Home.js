@@ -12,7 +12,7 @@ const { Header, Sider, Content } = Layout;
 const Home = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const [contentWidth, setContentWidth] = useState(0);
+	const [contentWidth, setContentWidth] = useState(200);
 	const [collapsed, setCollapsed] = useState(false);
 
 	const toggle = () => setCollapsed(!collapsed);
