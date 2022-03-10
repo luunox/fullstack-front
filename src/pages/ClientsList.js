@@ -172,7 +172,7 @@ const ClientList = ({ contentWidth }) => {
 	return (
 		<>
 			<Table
-				className="w-full max-w-xl"
+				className="w-full max-w-2xl"
 				size="middle"
 				loading={false}
 				bordered={false}

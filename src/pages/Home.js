@@ -42,10 +42,7 @@ const Home = () => {
 				})}
 			</Header>
 
-			<Content
-				className="relative flex flex-col justify-center items-center bg-slate-200 overflow-x-hidden overflow-y-auto min-h-[280px] p-6 mt-16"
-				style={{ marginLeft: window.innerWidth < 600 ? 80 + 'px' : 80 + 'px' }}
-			>
+			<Content className="relative flex flex-col justify-center items-center bg-slate-200 overflow-x-hidden overflow-y-auto min-h-[280px] p-6 mt-16" style={{ marginLeft: contentWidth }}>
 				<Routes>
 					<Route path="/" element={<DashBoard />} />
 					<Route path="/create_client" element={<ClientCreate />} />

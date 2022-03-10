@@ -11,13 +11,14 @@ const Dashboard = () => {
 
 	const centerRenderer = (currentValue, color) => {
 		return (
-			<h3
+			<p
+				className="text-base font-semibold"
 				style={{
 					color: color,
 				}}
 			>
 				{currentValue}
-			</h3>
+			</p>
 		);
 	};
 
@@ -36,13 +37,13 @@ const Dashboard = () => {
 
 	return (
 		<>
-			<Row className="min-w-full justify-around">
+			<Row className="w-full max-w-2xl" justify="space-around" gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 32]}>
 				<Col>
-					<CircularGauge style={gaugeStyles} value={data.filter((dat) => dat.edad <= 18).length} centerRender={centerRenderer} />
+					<CircularGauge value={data.filter((dat) => dat.edad <= 18).length} centerRender={centerRenderer} />
 					<p className="text-base font-semibold">Clientes hasta los 18 años</p>
 				</Col>
 				<Col>
-					<CircularGauge style={gaugeStyles} value={data.filter((dat) => dat.edad > 18).length} centerRender={centerRenderer} />
+					<CircularGauge value={data.filter((dat) => dat.edad > 18).length} centerRender={centerRenderer} />
 					<p className="text-base font-semibold">Clientes después de los 18 años</p>
 				</Col>
 			</Row>
