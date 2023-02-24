@@ -33,6 +33,7 @@ const Dashboard = () => {
 			setData(json.data);
 			console.log('[llamada de api] - lista de todos los clientes', json.data);
 		})();
+    console.log(process.env)
 	}, []);
 
 	return (
