@@ -33,7 +33,6 @@ const Dashboard = () => {
 			setData(json.data);
 			console.log('[llamada de api] - lista de todos los clientes', json.data);
 		})();
-    console.log(process.env)
 	}, []);
 
 	return (
@@ -49,7 +48,6 @@ const Dashboard = () => {
 				</Col>
 			</Row>
       <Row>
-        env var {process.env.KENDO_UI_LICENSE}
       </Row>
 		</>
 	);
