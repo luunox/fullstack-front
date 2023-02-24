@@ -47,7 +47,9 @@ const Dashboard = () => {
 					<p className="text-base font-semibold">Clientes después de los 18 años</p>
 				</Col>
 			</Row>
-      {process.env.KENDO_UI_LICENSE}
+      <Row>
+        env var {process.env.KENDO_UI_LICENSE}
+      </Row>
 		</>
 	);
 };
